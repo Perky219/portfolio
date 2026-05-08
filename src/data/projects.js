@@ -4,8 +4,8 @@ export const freelanceProjects = [
     date: "Feb. 2026 – Present",
     stack: ["React", "Vite", "JavaScript", "TypeScript", "TailwindCSS", "Supabase", "PostgreSQL"],
     github: null,
-    live: null,
-    mockUrl: "todopbweb.vercel.app",
+    live: "https://todopbweb.pages.dev/",
+    mockUrl: "todopbweb.pages.dev",
     gradient: "from-cyan-500/20 to-blue-600/20",
   },
   {
@@ -13,8 +13,8 @@ export const freelanceProjects = [
     date: "Mar. 2026 – Present",
     stack: ["React", "Vite", "JavaScript", "TailwindCSS"],
     github: null,
-    live: null,
-    mockUrl: "larancha-restaurant.vercel.app",
+    live: "https://larancha.pages.dev/",
+    mockUrl: "larancha.pages.dev",
     gradient: "from-amber-400/20 to-orange-500/20",
   },
   {
@@ -22,8 +22,8 @@ export const freelanceProjects = [
     date: "Feb. 2026 – Present",
     stack: ["React", "Vite", "JavaScript", "TailwindCSS"],
     github: null,
-    live: null,
-    mockUrl: "solucioneselectricas.vercel.app",
+    live: "https://gruposen.site/",
+    mockUrl: "gruposen.site",
     gradient: "from-blue-500/20 to-indigo-600/20",
   },
   {

@@ -1,6 +1,7 @@
 export const personal = {
-  name: "Luis Cubillo",
-  lastName: "Sandoval",
+  name: "Luis",
+  lastName: "Cubillo Sandoval",
+  displayName: "Luis Cubillo Sandoval",
   fullName: "Luis Alonso Cubillo Sandoval",
   title: "Full Stack Developer",
   location: "San Carlos, Alajuela, Costa Rica",
@@ -13,5 +14,6 @@ export const personal = {
   linkedinHandle: "linkedin.com/in/luis-cubs",
   whatsapp: "https://wa.me/50685852107",
   cvPath: "/portfolio/cv.pdf",
-  photoPath: "/portfolio/avatar.jpg",
+  cvHtmlPath: "/portfolio/cv.html",
+  photoPath: "/portfolio/avatar.png",
 };
