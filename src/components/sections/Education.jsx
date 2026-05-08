@@ -1,9 +1,13 @@
+import { useState } from "react";
+import { FiAward, FiEye } from "react-icons/fi";
 import { SectionHeading } from "../ui/SectionHeading";
 import { AnimatedSection } from "../ui/AnimatedSection";
+import { CertPreviewModal } from "../ui/CertPreviewModal";
 import { useLanguage } from "../../hooks/useLanguage";
 
 export function Education() {
   const { t } = useLanguage();
+  const [certOpen, setCertOpen] = useState(false);
 
   return (
     <section id="education" className="py-12 md:py-16 max-w-5xl mx-auto px-4 sm:px-6">
@@ -33,18 +37,28 @@ export function Education() {
         <div className="flex flex-col gap-3 sm:gap-4">
           {/* Certification card */}
           <AnimatedSection delay={0.08}>
-            <div
-              className="bg-surface border rounded-xl p-4 sm:p-5"
+            <button
+              onClick={() => setCertOpen(true)}
+              className="w-full text-left bg-surface border rounded-xl p-4 sm:p-5 group hover:border-warm/35 transition-all duration-200"
               style={{ borderColor: "var(--color-edge)" }}
             >
-              <p className="font-mono text-xs text-accent tracking-[0.18em] uppercase mb-3">
-                {t.sections.certifications}
-              </p>
-              <h4 className="font-display font-semibold text-ink text-sm leading-snug mb-1.5">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2">
+                  <FiAward size={13} className="text-warm shrink-0" />
+                  <p className="font-mono text-xs text-accent tracking-[0.18em] uppercase">
+                    {t.sections.certifications}
+                  </p>
+                </div>
+                <span className="flex items-center gap-1 font-mono text-xs text-ink-3 group-hover:text-warm transition-colors">
+                  <FiEye size={12} />
+                  {t.certifications.view}
+                </span>
+              </div>
+              <h4 className="font-display font-semibold text-ink text-sm leading-snug mb-1.5 group-hover:text-warm transition-colors">
                 {t.certifications.cert1_title}
               </h4>
               <p className="font-mono text-xs text-ink-3">{t.certifications.cert1_issuer}</p>
-            </div>
+            </button>
           </AnimatedSection>
 
           {/* Languages card */}
@@ -74,6 +88,8 @@ export function Education() {
           </AnimatedSection>
         </div>
       </div>
+
+      {certOpen && <CertPreviewModal onClose={() => setCertOpen(false)} />}
     </section>
   );
 }

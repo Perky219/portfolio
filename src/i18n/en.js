@@ -123,6 +123,8 @@ export const en = {
   certifications: {
     cert1_title: "Web Services Fundamentals: Build a Mini Social Network",
     cert1_issuer: "ITCR × Myongji College – K-Lab CR · May – Jun. 2025 · 48 hrs",
+    view: "View",
+    download: "Download",
   },
 
   lang_section: {

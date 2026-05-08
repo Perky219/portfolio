@@ -123,6 +123,8 @@ export const es = {
   certifications: {
     cert1_title: "Fundamentos de Servicios Web: Construir una Mini Red Social",
     cert1_issuer: "ITCR × Myongji College – K-Lab CR · May – Jun. 2025 · 48 hrs",
+    view: "Ver",
+    download: "Descargar",
   },
 
   lang_section: {
