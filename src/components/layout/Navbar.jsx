@@ -44,7 +44,7 @@ export function Navbar() {
       <nav className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
         <a href="#about" className="flex items-center" aria-label="Home">
           <img
-            src={theme === "dark" ? personal.logoWhitePath : personal.logoPath}
+            src={theme === "dark" ? personal.logoPath : personal.logoWhitePath}
             alt="Logo"
             className="h-8 w-auto object-contain"
           />
