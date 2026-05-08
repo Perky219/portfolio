@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { motion } from "motion/react";
 import { FiGithub, FiLinkedin, FiDownload, FiArrowDown } from "react-icons/fi";
 import { useLanguage } from "../../hooks/useLanguage";
 import { personal } from "../../data/personal";
 import { GithubHoverCard } from "../ui/GithubHoverCard";
 import { LinkedinHoverCard } from "../ui/LinkedinHoverCard";
+import { CVPreviewModal } from "../ui/CVPreviewModal";
 
 function Avatar() {
   return (
@@ -60,6 +62,7 @@ function Avatar() {
 
 export function Hero() {
   const { t } = useLanguage();
+  const [cvOpen, setCvOpen] = useState(false);
 
   return (
     <section id="about" className="relative min-h-screen flex items-center">
@@ -154,14 +157,13 @@ export function Hero() {
                 </a>
               </LinkedinHoverCard>
 
-              <a
-                href={personal.cvPath}
-                download
+              <button
+                onClick={() => setCvOpen(true)}
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-warm/30 text-warm text-sm hover:bg-warm/8 transition-all"
               >
                 <FiDownload size={15} />
                 {t.hero.cta_cv}
-              </a>
+              </button>
             </motion.div>
           </div>
 
@@ -189,6 +191,8 @@ export function Hero() {
           </span>
         </motion.div>
       </div>
+
+      {cvOpen && <CVPreviewModal onClose={() => setCvOpen(false)} />}
     </section>
   );
 }
