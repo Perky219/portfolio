@@ -17,5 +17,6 @@ export const personal = {
   cvHtmlPath: "/portfolio/cv.html",
   photoPath: "/portfolio/avatar.webp",
   logoPath: "/portfolio/logo.webp",
+  logoWhitePath: "/portfolio/logo-white.webp",
   certPath: "/portfolio/cert.pdf",
 };
