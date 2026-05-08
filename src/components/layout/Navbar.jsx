@@ -3,12 +3,16 @@ import { AnimatePresence, motion } from "motion/react";
 import { FiSun, FiMoon, FiMenu, FiX } from "react-icons/fi";
 import { useLanguage } from "../../hooks/useLanguage";
 import { useTheme } from "../../hooks/useTheme";
+import { useScrollSpy } from "../../hooks/useScrollSpy";
+
+const SECTIONS = ["about", "projects", "skills", "education", "contact"];
 
 export function Navbar() {
   const { t, lang, setLang } = useLanguage();
   const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const activeSection = useScrollSpy(SECTIONS);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -46,15 +50,27 @@ export function Navbar() {
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-5">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-ink-2 hover:text-ink font-mono text-xs tracking-wide transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+          {links.map((link) => {
+            const id = link.href.slice(1);
+            const isActive = activeSection === id;
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                className="relative font-mono text-xs tracking-wide transition-colors"
+                style={{ color: isActive ? "var(--color-accent)" : "var(--color-ink-2)" }}
+              >
+                {link.label}
+                {isActive && (
+                  <motion.span
+                    layoutId="nav-indicator"
+                    className="absolute -bottom-1 left-0 right-0 h-px bg-accent"
+                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                  />
+                )}
+              </a>
+            );
+          })}
 
           <div className="flex items-center gap-2 ml-2">
             <button

@@ -6,14 +6,14 @@ export function Education() {
   const { t } = useLanguage();
 
   return (
-    <section id="education" className="py-20 max-w-5xl mx-auto px-6">
+    <section id="education" className="py-12 md:py-16 max-w-5xl mx-auto px-4 sm:px-6">
       <SectionHeading eyebrow="04 · Education" title={t.sections.education} />
 
-      <div className="grid sm:grid-cols-2 gap-4">
+      <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
         {/* University card */}
         <AnimatedSection>
           <div
-            className="bg-surface border rounded-xl p-5 h-full"
+            className="bg-surface border rounded-xl p-4 sm:p-5 h-full"
             style={{ borderColor: "var(--color-edge)" }}
           >
             <div className="flex justify-between items-start gap-2 mb-1">
@@ -30,11 +30,11 @@ export function Education() {
           </div>
         </AnimatedSection>
 
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-3 sm:gap-4">
           {/* Certification card */}
           <AnimatedSection delay={0.08}>
             <div
-              className="bg-surface border rounded-xl p-5"
+              className="bg-surface border rounded-xl p-4 sm:p-5"
               style={{ borderColor: "var(--color-edge)" }}
             >
               <p className="font-mono text-xs text-accent tracking-[0.18em] uppercase mb-3">
@@ -50,7 +50,7 @@ export function Education() {
           {/* Languages card */}
           <AnimatedSection delay={0.14}>
             <div
-              className="bg-surface border rounded-xl p-5"
+              className="bg-surface border rounded-xl p-4 sm:p-5"
               style={{ borderColor: "var(--color-edge)" }}
             >
               <p className="font-mono text-xs text-accent tracking-[0.18em] uppercase mb-4">

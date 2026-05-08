@@ -73,8 +73,8 @@ export function Hero() {
         <div className="absolute bottom-1/4 right-10 w-[280px] h-[280px] bg-accent/3 rounded-full blur-[90px]" />
       </div>
 
-      <div className="relative max-w-5xl mx-auto px-6 pt-28 pb-20 w-full">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
+      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 pb-14 sm:pb-20 w-full">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 lg:gap-12">
           {/* Text content */}
           <div className="max-w-xl">
             <motion.p
@@ -113,15 +113,46 @@ export function Hero() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.26 }}
-              className="text-ink-2 text-base sm:text-lg leading-relaxed mb-9"
+              className="text-ink-2 text-base sm:text-lg leading-relaxed mb-6"
             >
               {t.hero.description}
             </motion.p>
 
+            {/* Stats chips */}
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.32 }}
+              className="flex flex-wrap gap-2 mb-7"
+            >
+              {[
+                { value: "7", label: t.hero.stats.projects },
+                { value: "3", label: t.hero.stats.live },
+                { value: null, label: t.hero.stats.internship },
+              ].map(({ value, label }) => (
+                <div
+                  key={label}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs"
+                  style={{
+                    borderColor: "var(--color-edge)",
+                    background: "var(--color-surface)",
+                    color: "var(--color-ink-2)",
+                  }}
+                >
+                  {value && (
+                    <span className="font-display font-bold text-accent text-sm leading-none">
+                      {value}
+                    </span>
+                  )}
+                  <span className="font-mono tracking-wide">{label}</span>
+                </div>
+              ))}
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.34 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
               className="flex flex-wrap gap-3"
             >
               <a

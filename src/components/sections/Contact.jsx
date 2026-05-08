@@ -36,7 +36,7 @@ export function Contact() {
   const { t } = useLanguage();
 
   return (
-    <section id="contact" className="py-20 max-w-5xl mx-auto px-6">
+    <section id="contact" className="py-12 md:py-16 max-w-5xl mx-auto px-4 sm:px-6">
       <SectionHeading eyebrow="05 · Contact" title={t.sections.contact} />
 
       <AnimatedSection>
@@ -45,7 +45,7 @@ export function Contact() {
         </p>
       </AnimatedSection>
 
-      <div className="grid sm:grid-cols-2 gap-3 max-w-lg">
+      <div className="grid sm:grid-cols-2 gap-2 sm:gap-3 max-w-lg">
         <AnimatedSection delay={0}>
           <ContactLink
             icon={FiMail}

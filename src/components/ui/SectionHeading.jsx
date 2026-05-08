@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 
 export function SectionHeading({ eyebrow, title }) {
   return (
-    <div className="mb-10">
+    <div className="mb-7 sm:mb-10">
       <motion.p
         initial={{ opacity: 0, y: 8 }}
         whileInView={{ opacity: 1, y: 0 }}

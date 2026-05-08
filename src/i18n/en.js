@@ -17,6 +17,11 @@ export const en = {
     cta_linkedin: "LinkedIn",
     cta_cv: "Download CV",
     scroll: "scroll",
+    stats: {
+      projects: "Projects Built",
+      live: "Live Apps",
+      internship: "Internship · 2026",
+    },
   },
 
   sections: {
