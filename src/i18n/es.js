@@ -15,6 +15,7 @@ export const es = {
     cta_projects: "Ver Proyectos",
     cta_github: "GitHub",
     cta_linkedin: "LinkedIn",
+    cta_cv: "Descargar CV",
     scroll: "deslizar",
   },
 
@@ -89,6 +90,13 @@ export const es = {
         "Implementar diseño mobile-first con Tailwind CSS, interacciones JS personalizadas y estructura HTML5 semántica – sin plantillas de terceros.",
       ],
     },
+  },
+
+  modal: {
+    stack: "Stack Tecnológico",
+    github: "Ver en GitHub",
+    live: "Vista en Vivo",
+    close: "Cerrar",
   },
 
   skills: {
