@@ -5,6 +5,8 @@ export const freelanceProjects = [
     stack: ["React", "Vite", "JavaScript", "TypeScript", "TailwindCSS", "Supabase", "PostgreSQL"],
     github: null,
     live: null,
+    mockUrl: "todopbweb.vercel.app",
+    gradient: "from-cyan-500/20 to-blue-600/20",
   },
   {
     id: "larancha",
@@ -12,6 +14,8 @@ export const freelanceProjects = [
     stack: ["React", "Vite", "JavaScript", "TailwindCSS"],
     github: null,
     live: null,
+    mockUrl: "larancha-restaurant.vercel.app",
+    gradient: "from-amber-400/20 to-orange-500/20",
   },
   {
     id: "solucioneselectricas",
@@ -19,6 +23,8 @@ export const freelanceProjects = [
     stack: ["React", "Vite", "JavaScript", "TailwindCSS"],
     github: null,
     live: null,
+    mockUrl: "solucioneselectricas.vercel.app",
+    gradient: "from-blue-500/20 to-indigo-600/20",
   },
   {
     id: "apprifas",
@@ -26,6 +32,8 @@ export const freelanceProjects = [
     stack: ["React", "Vite", "JavaScript", "TailwindCSS", "Motion", "CSV parsing", "PDF/Excel export"],
     github: null,
     live: null,
+    mockUrl: "apprifas.vercel.app",
+    gradient: "from-violet-500/20 to-purple-600/20",
   },
 ];
 
@@ -36,6 +44,8 @@ export const academicProjects = [
     stack: ["React", "Vite", "TypeScript", "Chakra UI", "REST API", "Git", "Scrum"],
     github: null,
     live: null,
+    mockUrl: "bookme-itcr.vercel.app",
+    gradient: "from-teal-500/20 to-emerald-500/20",
   },
   {
     id: "moneytrack",
@@ -43,6 +53,8 @@ export const academicProjects = [
     stack: ["React", "Vite", "JavaScript", "TailwindCSS", "FastAPI", "Python", "SQLAlchemy", "SQLite"],
     github: null,
     live: null,
+    mockUrl: "moneytrack.vercel.app",
+    gradient: "from-emerald-500/20 to-green-600/20",
   },
   {
     id: "kyoto",
@@ -50,5 +62,7 @@ export const academicProjects = [
     stack: ["HTML5", "CSS3", "JavaScript", "TailwindCSS", "OpenStreetMap"],
     github: null,
     live: null,
+    mockUrl: "kyoto-tourism.vercel.app",
+    gradient: "from-pink-500/20 to-rose-600/20",
   },
 ];
