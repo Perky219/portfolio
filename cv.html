@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luis Alonso Cubillo Sandoval – Full Stack Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: 210mm 297mm; margin: 13mm 16mm; background: #f5f2eb; }
+
+  :root {
+    --ink: #0f0f0f;
+    --ink-light: #3a3a3a;
+    --rule: #d4d0c8;
+    --accent: #1a3a5c;
+    --accent-warm: #b85c2a;
+    --bg: #f5f2eb;
+    --mono: 'DM Mono', monospace;
+    --serif: 'DM Serif Display', serif;
+    --sans: 'Instrument Sans', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    background: #f5f2eb;
+    font-family: var(--sans);
+    color: var(--ink);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    padding: 13mm 16mm;
+  }
+
+  .header {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 9px;
+    margin-bottom: 12px;
+  }
+
+  .header-name {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    line-height: 1;
+    color: var(--ink);
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+  }
+
+  .header-title {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: var(--accent);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 18px;
+  }
+
+  .contact-item {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--ink-light);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .contact-item span {
+    color: var(--accent-warm);
+    font-weight: 500;
+    margin-right: 3px;
+  }
+
+  .about-text {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    line-height: 1.65;
+    color: var(--ink-light);
+    margin-bottom: 13px;
+    padding-bottom: 11px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .about-text strong { color: var(--ink); font-weight: 600; }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.59rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent-warm);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+    margin-top: 13px;
+  }
+
+  .entry { margin-bottom: 11px; }
+  .entry + .entry { padding-top: 10px; border-top: 1px solid var(--rule); }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1px;
+  }
+
+  .entry-title {
+    font-family: var(--sans);
+    font-size: 0.77rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .entry-date {
+    font-family: var(--mono);
+    font-size: 0.59rem;
+    color: var(--accent);
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: 10px;
+  }
+
+  .entry-sub {
+    font-family: var(--sans);
+    font-size: 0.67rem;
+    color: var(--accent-warm);
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+
+  .entry-bullets {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 4px;
+  }
+
+  .entry-bullets li {
+    font-family: var(--sans);
+    font-size: 0.67rem;
+    color: var(--ink-light);
+    line-height: 1.55;
+    padding-left: 11px;
+    position: relative;
+    margin-bottom: 2px;
+  }
+
+  .entry-bullets li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--accent-warm);
+  }
+
+  .entry-stack {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    color: var(--accent);
+    letter-spacing: 0.03em;
+  }
+
+  .entry-stack strong { color: var(--ink); }
+
+  .skill-group { margin-bottom: 6px; }
+
+  .skill-group-name {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: inline;
+  }
+
+  .skill-group-values {
+    font-family: var(--mono);
+    font-size: 0.63rem;
+    color: var(--ink-light);
+    display: inline;
+    margin-left: 6px;
+  }
+
+  .edu-school { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; color: var(--ink); }
+  .edu-degree { font-family: var(--sans); font-size: 0.67rem; color: var(--ink-light); margin: 2px 0; }
+  .edu-date { font-family: var(--mono); font-size: 0.59rem; color: var(--accent); margin-bottom: 4px; }
+  .edu-note { font-family: var(--mono); font-size: 0.58rem; color: var(--ink-light); line-height: 1.5; }
+
+  .cert-name { font-family: var(--sans); font-size: 0.68rem; font-weight: 600; color: var(--ink); margin-bottom: 1px; }
+  .cert-issuer { font-family: var(--mono); font-size: 0.59rem; color: var(--accent); }
+
+  .lang-row { font-family: var(--sans); font-size: 0.7rem; margin-bottom: 3px; }
+  .lang-level { font-family: var(--mono); font-size: 0.59rem; color: var(--accent-warm); margin-left: 8px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <div class="header-name">Luis Alonso Cubillo Sandoval</div>
+    <div class="header-title">Full Stack Developer · Web &amp; Frontend Specialist</div>
+    <div class="contact-row">
+      <a class="contact-item" href="https://wa.me/50685852107"><span>✆</span>+506 8585-2107</a>
+      <a class="contact-item" href="mailto:luisalonso2005@gmail.com"><span>@</span>luisalonso2005@gmail.com</a>
+      <a class="contact-item" href="https://github.com/Perky219"><span>gh</span>github.com/Perky219</a>
+      <a class="contact-item" href="https://www.linkedin.com/in/luis-cubs/"><span>in</span>linkedin.com/in/luis-cubs</a>
+      <span class="contact-item"><span>📍</span>San Carlos, Alajuela, Costa Rica</span>
+    </div>
+  </header>
+
+  <p class="about-text">
+    Passionate <strong>Full Stack Developer</strong> and Computer Engineering student at ITCR, with hands-on experience building production web applications for real clients and collaborative academic teams. I specialize in <strong>React-based frontend development</strong> and enjoy tackling complex UI challenges, clean code architecture, and delivering reliable, user-centered products. Currently seeking a <strong>professional internship in web development</strong> for the second semester of 2026 where I can contribute, grow, and apply Agile practices in a real team environment.
+  </p>
+
+  <div class="section-label">Freelance Projects</div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="entry-title">TodoPBWeb – Tourism &amp; Local Commerce Platform</div>
+      <div class="entry-date">Feb. 2026 – Present</div>
+    </div>
+    <div class="entry-sub">Frontend Developer · Municipalidad de San Isidro de Peñas Blancas</div>
+    <ul class="entry-bullets">
+      <li>Develop a public web platform to promote local businesses and tourist attractions in the Peñas Blancas region, allowing residents to register their businesses for free.</li>
+      <li>Build reusable UI components and dynamic listing pages, and integrate Supabase as the backend layer for authentication, database, and real-time data.</li>
+      <li>Collaborate in a cross-functional team using Scrum methodology and Git-based version control on GitHub.</li>
+    </ul>
+    <div class="entry-stack"><strong>Stack:</strong> React · Vite · JavaScript · TypeScript · TailwindCSS · Supabase · PostgreSQL</div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="entry-title">La Rancha – Bilingual Restaurant Website</div>
+      <div class="entry-date">Mar. 2026 – Present</div>
+    </div>
+    <div class="entry-sub">Frontend Developer · Freelance</div>
+    <ul class="entry-bullets">
+      <li>Develop a bilingual (Spanish/English) static website covering menu, location, and contact sections, implementing i18n support to serve local and international visitors.</li>
+      <li>Deliver a clean, mobile-responsive interface aligned with the restaurant's brand identity.</li>
+    </ul>
+    <div class="entry-stack"><strong>Stack:</strong> React · Vite · JavaScript · TailwindCSS</div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="entry-title">Soluciones Eléctricas del Norte – Business Website</div>
+      <div class="entry-date">Feb. 2026 – Present</div>
+    </div>
+    <div class="entry-sub">Frontend Developer · Freelance</div>
+    <ul class="entry-bullets">
+      <li>Design and implement multiple frontend sections for a static informational website for a local electrical services business.</li>
+      <li>Build responsive layouts and interactive UI components ensuring cross-browser compatibility and mobile responsiveness.</li>
+    </ul>
+    <div class="entry-stack"><strong>Stack:</strong> React · Vite · JavaScript · TailwindCSS</div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="entry-title">AppRifas – Raffle Management Web App</div>
+      <div class="entry-date">Dec. 2025 – Mar. 2026</div>
+    </div>
+    <div class="entry-sub">Frontend Developer · Freelance · ASECCSS Partner Client</div>
+    <ul class="entry-bullets">
+      <li>Build a complete raffle management platform allowing organizers to upload participant and prize lists via CSV, handle the full raffle workflow, and display winners in real time.</li>
+      <li>Implement export functionality for results in both PDF and Excel formats for post-event reporting.</li>
+      <li>Integrate Motion for smooth UI animations and transitions throughout the raffle flow.</li>
+    </ul>
+    <div class="entry-stack"><strong>Stack:</strong> React · Vite · JavaScript · TailwindCSS · Motion · CSV parsing · PDF/Excel export</div>
+  </div>
+
+  <div class="section-label" style="page-break-before: always;">Academic Projects</div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="entry-title">BookMe – Appointment &amp; Scheduling System</div>
+      <div class="entry-date">Mar. 2026 – Present</div>
+    </div>
+    <div class="entry-sub">Frontend Developer · ITCR – Web Development Course · Team of 6</div>
+    <ul class="entry-bullets">
+      <li>Contribute to a full-featured scheduling platform, leading the development of the calendar and services management sections.</li>
+      <li>Work in a structured Agile team using user-story branches, pull requests, Husky pre-commit hooks, and Commitlint for commit standards.</li>
+      <li>Consume a RESTful backend documented with Swagger, handling API integration on the frontend side.</li>
+    </ul>
+    <div class="entry-stack"><strong>Stack:</strong> React · Vite · TypeScript · Chakra UI · REST API · Git · Scrum</div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="entry-title">MoneyTrack – Personal Finance Dashboard</div>
+      <div class="entry-date">May – Jun. 2025</div>
+    </div>
+    <div class="entry-sub">Full Stack Developer · ITCR – Web Development Course (Individual)</div>
+    <ul class="entry-bullets">
+      <li>Design and build a full-stack personal finance app with login, user registration, manual and CSV data import, and a real-time dashboard with bar, pie, and line charts.</li>
+      <li>Implement a RESTful backend with FastAPI and SQLAlchemy, applying a clean entity-relationship database model and data validation with Pydantic.</li>
+      <li>Develop all React components and integrate financial goal tracking with dynamic progress indicators per category.</li>
+    </ul>
+    <div class="entry-stack"><strong>Stack:</strong> React · Vite · JavaScript · TailwindCSS · FastAPI · Python · SQLAlchemy · SQLite · REST API</div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="entry-title">Kyoto Tourism Website</div>
+      <div class="entry-date">Apr. – May 2025</div>
+    </div>
+    <div class="entry-sub">Frontend Developer · ITCR – Web Development Course (Individual)</div>
+    <ul class="entry-bullets">
+      <li>Build a multipage responsive tourism site covering attractions, gastronomy, culture, and transport, with interactive maps via OpenStreetMap and modal popups for galleries.</li>
+      <li>Implement mobile-first design using Tailwind CSS utility classes, custom JavaScript interactions, and semantic HTML5 structure — no third-party templates used.</li>
+    </ul>
+    <div class="entry-stack"><strong>Stack:</strong> HTML5 · CSS3 · JavaScript · TailwindCSS (CDN) · OpenStreetMap</div>
+  </div>
+
+  <div class="section-label">Technical Skills</div>
+
+  <div class="skill-group">
+    <span class="skill-group-name">Languages:</span>
+    <span class="skill-group-values">JavaScript, TypeScript, Python, Java, C, C++, SQL</span>
+  </div>
+  <div class="skill-group">
+    <span class="skill-group-name">Frontend:</span>
+    <span class="skill-group-values">React, Vite, TailwindCSS, Chakra UI, HTML5, CSS3</span>
+  </div>
+  <div class="skill-group">
+    <span class="skill-group-name">Backend &amp; Data:</span>
+    <span class="skill-group-values">FastAPI, Node.js, Supabase, Firebase, MySQL, PostgreSQL, SQLite</span>
+  </div>
+  <div class="skill-group">
+    <span class="skill-group-name">Tools &amp; Methods:</span>
+    <span class="skill-group-values">Git, GitHub, npm, Jira, Scrum, REST API, Swagger, Pydantic, SQLAlchemy</span>
+  </div>
+
+  <div class="section-label">Education</div>
+
+  <div class="entry">
+    <div class="edu-school">Instituto Tecnológico de Costa Rica</div>
+    <div class="edu-degree">B.Sc. Computer Engineering</div>
+    <div class="edu-date">2023 – Est. Early 2027</div>
+    <div class="edu-note">
+      Final course semester in progress. Professional internship projected Jul–Dec 2026.<br>
+      Relevant coursework: Software Design, Software Requirements, DB Management I &amp; II,
+      Data Structures, OOP, Algorithms Analysis, QA, Project Management, Compilers &amp; Interpreters.
+    </div>
+  </div>
+
+  <div class="section-label">Certifications</div>
+
+  <div class="entry">
+    <div class="cert-name">Web Services Fundamentals: Build a Mini Social Network</div>
+    <div class="cert-issuer">ITCR × Myongji College – K-Lab CR &nbsp;·&nbsp; May – Jun. 2025 &nbsp;·&nbsp; 48 hrs</div>
+  </div>
+
+  <div class="section-label">Languages</div>
+
+  <div class="lang-row">
+    <span>Spanish</span><span class="lang-level">Native</span>
+  </div>
+  <div class="lang-row">
+    <span>English</span><span class="lang-level">Intermediate</span>
+  </div>
+
+</div>
+</body>
+</html>
