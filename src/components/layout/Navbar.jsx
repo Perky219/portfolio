@@ -4,6 +4,7 @@ import { FiSun, FiMoon, FiMenu, FiX } from "react-icons/fi";
 import { useLanguage } from "../../hooks/useLanguage";
 import { useTheme } from "../../hooks/useTheme";
 import { useScrollSpy } from "../../hooks/useScrollSpy";
+import { personal } from "../../data/personal";
 
 const SECTIONS = ["about", "projects", "skills", "education", "contact"];
 
@@ -41,11 +42,12 @@ export function Navbar() {
       style={scrolled ? { borderColor: "var(--color-edge)" } : {}}
     >
       <nav className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-        <a
-          href="#about"
-          className="font-display font-bold text-ink hover:text-accent transition-colors text-sm tracking-tight"
-        >
-          LC<span className="text-accent">.</span>
+        <a href="#about" className="flex items-center" aria-label="Home">
+          <img
+            src={personal.logoPath}
+            alt="Logo"
+            className="h-8 w-auto object-contain"
+          />
         </a>
 
         {/* Desktop */}

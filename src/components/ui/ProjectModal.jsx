@@ -1,10 +1,10 @@
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect } from "react";
-import { FiGithub, FiExternalLink } from "react-icons/fi";
+import { useEffect, useRef, useState } from "react";
+import { FiGithub, FiExternalLink, FiAlertCircle } from "react-icons/fi";
 import { Badge } from "./Badge";
 import { useLanguage } from "../../hooks/useLanguage";
 
-function ModalBrowserChrome({ project, title, onClose }) {
+function ModalBrowserChrome({ project, onClose }) {
   return (
     <div
       className="flex items-center gap-2 px-4 py-2.5 shrink-0 border-b"
@@ -13,7 +13,6 @@ function ModalBrowserChrome({ project, title, onClose }) {
         borderColor: "var(--color-edge)",
       }}
     >
-      {/* Traffic lights — red closes the modal */}
       <div className="flex gap-1.5 shrink-0">
         <button
           onClick={onClose}
@@ -24,7 +23,6 @@ function ModalBrowserChrome({ project, title, onClose }) {
         <div className="w-3 h-3 rounded-full bg-green-400/50" />
       </div>
 
-      {/* URL bar */}
       <div
         className="flex-1 mx-2 rounded px-3 py-1 text-xs font-mono text-ink-3 text-center truncate"
         style={{ background: "var(--color-surface)" }}
@@ -48,34 +46,67 @@ function ModalBrowserChrome({ project, title, onClose }) {
 }
 
 function ProjectPreview({ project, gradient }) {
-  if (project.live) {
+  const [blocked, setBlocked] = useState(false);
+  const iframeRef = useRef(null);
+
+  const handleLoad = () => {
+    try {
+      const doc = iframeRef.current?.contentDocument;
+      // If no throws, same-origin — check if it's a real page or an error doc
+      if (doc && doc.body && doc.body.innerHTML.length < 50) setBlocked(true);
+    } catch {
+      // SecurityError = cross-origin frame loaded correctly, do nothing
+    }
+  };
+
+  if (project.live && !blocked) {
     return (
-      <iframe
-        src={project.live}
-        className="w-full border-0 shrink-0"
-        style={{ height: "260px" }}
-        title="Live preview"
-        sandbox="allow-scripts allow-same-origin allow-forms"
-        loading="lazy"
-      />
+      <div className="relative shrink-0" style={{ height: "260px" }}>
+        <iframe
+          ref={iframeRef}
+          src={project.live}
+          className="w-full h-full border-0"
+          title="Live preview"
+          sandbox="allow-scripts allow-same-origin allow-forms"
+          loading="lazy"
+          onLoad={handleLoad}
+          onError={() => setBlocked(true)}
+        />
+      </div>
     );
   }
 
   return (
     <div
-      className={`h-32 bg-gradient-to-br ${gradient} relative overflow-hidden shrink-0 flex items-center justify-center`}
+      className={`h-36 bg-gradient-to-br ${gradient} relative overflow-hidden shrink-0 flex items-center justify-center`}
     >
-      <div className="text-center px-6">
+      <div className="text-center px-6 z-10 relative">
         <p className="font-display font-semibold text-ink/60 text-lg leading-tight">
           {project.mockUrl}
         </p>
-        <p className="font-mono text-xs text-ink-3/60 mt-1">preview not available</p>
+        {blocked && project.live ? (
+          <div className="mt-2 flex flex-col items-center gap-1.5">
+            <span className="flex items-center gap-1.5 font-mono text-xs text-ink-3/70">
+              <FiAlertCircle size={11} />
+              preview blocked by host
+            </span>
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-xs text-accent hover:underline"
+            >
+              open site →
+            </a>
+          </div>
+        ) : (
+          <p className="font-mono text-xs text-ink-3/60 mt-1">preview not available</p>
+        )}
       </div>
-      {/* Decorative floating stack tags */}
       {project.stack.slice(0, 3).map((tech, i) => (
         <span
           key={tech}
-          className="absolute font-mono text-xs text-ink-2/20 select-none pointer-events-none"
+          className="absolute font-mono text-ink-2/20 select-none pointer-events-none"
           style={{
             top: `${20 + i * 28}%`,
             left: i % 2 === 0 ? "8%" : "62%",
@@ -125,10 +156,8 @@ export function ProjectModal({ project, onClose }) {
           onClick={(e) => e.stopPropagation()}
         >
           <ModalBrowserChrome project={project} onClose={onClose} />
-
           <ProjectPreview project={project} gradient={project.gradient} />
 
-          {/* Details */}
           <div className="overflow-y-auto flex-1">
             <div className="px-6 pt-5 pb-2">
               <span className="font-mono text-xs text-accent uppercase tracking-widest">
@@ -161,7 +190,6 @@ export function ProjectModal({ project, onClose }) {
             </div>
           </div>
 
-          {/* Footer links */}
           {(project.github || project.live) && (
             <div
               className="flex gap-3 px-6 py-4 border-t shrink-0"
