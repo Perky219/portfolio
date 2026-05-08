@@ -15,6 +15,6 @@ export const personal = {
   whatsapp: "https://wa.me/50685852107",
   cvPath: "/portfolio/cv.pdf",
   cvHtmlPath: "/portfolio/cv.html",
-  photoPath: "/portfolio/avatar.png",
+  photoPath: "/portfolio/avatar.webp",
   certPath: "/portfolio/cert.pdf",
 };
