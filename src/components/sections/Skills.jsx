@@ -1,7 +1,7 @@
 import { FiCode, FiLayout, FiDatabase, FiSettings } from "react-icons/fi";
 import { SectionHeading } from "../ui/SectionHeading";
 import { AnimatedSection } from "../ui/AnimatedSection";
-import { Badge } from "../ui/Badge";
+import { SkillBadge } from "../ui/SkillBadge";
 import { useLanguage } from "../../hooks/useLanguage";
 import { skillGroups } from "../../data/skills";
 
@@ -36,7 +36,7 @@ export function Skills() {
                 </div>
                 <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {group.items.map((item) => (
-                    <Badge key={item}>{item}</Badge>
+                    <SkillBadge key={item}>{item}</SkillBadge>
                   ))}
                 </div>
               </div>

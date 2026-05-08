@@ -1,11 +1,11 @@
 export const skillGroups = [
   {
     key: "languages",
-    items: ["JavaScript", "TypeScript", "Python", "Java", "C", "C++", "SQL"],
+    items: ["JavaScript", "TypeScript", "Python", "Java", "C", "C++", "R", "SQL", "Arduino"],
   },
   {
     key: "frontend",
-    items: ["React", "Vite", "TailwindCSS", "Chakra UI", "HTML5", "CSS3"],
+    items: ["React", "React Native", "Expo", "Vite", "TailwindCSS", "Chakra UI", "HTML5", "CSS3"],
   },
   {
     key: "backend",
@@ -13,6 +13,6 @@ export const skillGroups = [
   },
   {
     key: "tools",
-    items: ["Git", "GitHub", "npm", "Jira", "Scrum", "REST API", "Swagger", "Pydantic", "SQLAlchemy"],
+    items: ["Git", "GitHub", "npm", "Jira", "Scrum", "REST API", "Swagger", "Pydantic", "SQLAlchemy", "Markdown", "PowerShell"],
   },
 ];
